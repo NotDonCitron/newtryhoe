@@ -135,11 +135,14 @@ const EnhancedContentFeed = () => {
         >
           <div className="relative mb-8">
             <img
-              src="/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (52) copy.jpg"
+              src="/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (327).mp4"
               alt="Exclusive Content"
               className="w-full max-w-2xl mx-auto h-96 object-cover rounded-2xl shadow-2xl"
+              onError={(e) => {
+                e.currentTarget.src = '/by PKOFs (Telegram) (10) copy copy.jpg';
+              }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent rounded-2xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent rounded-2xl"></div>
             <div className="absolute bottom-6 left-6 right-6 text-white">
               <h2 className="text-4xl lg:text-5xl font-bold mb-2">
                 My Exclusive Content
