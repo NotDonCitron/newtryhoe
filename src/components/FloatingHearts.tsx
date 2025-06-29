@@ -30,7 +30,6 @@ const FloatingHearts: React.FC<FloatingHeartsProps> = ({ onLike, isLiked }) => {
     setHearts(prev => [...prev, newHeart]);
     onLike();
 
-    // Remove heart after animation
     setTimeout(() => {
       setHearts(prev => prev.filter(heart => heart.id !== newHeart.id));
     }, 2000);
@@ -39,13 +38,31 @@ const FloatingHearts: React.FC<FloatingHeartsProps> = ({ onLike, isLiked }) => {
   return (
     <div className="relative">
       <motion.button
-        whileTap={{ scale: 0.8 }}
+        whileTap={{ scale: 0.85 }}
         onClick={createHeart}
-        className={`p-2 rounded-full transition-colors ${
+        className={`relative p-2 rounded-full transition-all duration-300 ${
           isLiked ? 'text-red-500' : 'text-gray-400 hover:text-red-500'
         }`}
+        style={{
+          background: isLiked 
+            ? 'radial-gradient(circle, rgba(239,68,68,0.1) 0%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(156,163,175,0.05) 0%, transparent 70%)',
+          boxShadow: isLiked 
+            ? 'inset 0 1px 2px rgba(0,0,0,0.1), 0 1px 3px rgba(239,68,68,0.2)'
+            : 'inset 0 1px 2px rgba(0,0,0,0.05)'
+        }}
       >
         <Heart className={`h-6 w-6 ${isLiked ? 'fill-current' : ''}`} />
+        
+        {/* Weathered button surface */}
+        <div className="absolute inset-0 rounded-full opacity-20 pointer-events-none"
+          style={{
+            background: `
+              radial-gradient(circle at 30% 20%, rgba(255,255,255,0.4) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(0,0,0,0.1) 0%, transparent 50%)
+            `
+          }}
+        />
       </motion.button>
 
       <AnimatePresence>
@@ -60,7 +77,7 @@ const FloatingHearts: React.FC<FloatingHeartsProps> = ({ onLike, isLiked }) => {
             }}
             animate={{ 
               y: heart.y - 100, 
-              scale: [0, 1.2, 1],
+              scale: [0, 1.3, 1],
               opacity: [1, 1, 0],
               rotate: [0, 15, -15, 0]
             }}
@@ -68,7 +85,7 @@ const FloatingHearts: React.FC<FloatingHeartsProps> = ({ onLike, isLiked }) => {
             transition={{ duration: 2, ease: "easeOut" }}
             className="absolute pointer-events-none z-10"
           >
-            <Heart className="h-6 w-6 text-red-500 fill-current" />
+            <Heart className="h-6 w-6 text-red-500 fill-current drop-shadow-sm" />
           </motion.div>
         ))}
       </AnimatePresence>

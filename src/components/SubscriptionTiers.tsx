@@ -5,7 +5,6 @@ import CountdownTimer from './CountdownTimer';
 import ProgressivePricing from './ProgressivePricing';
 
 const SubscriptionTiers = () => {
-  // Create countdown end time (24 hours from now)
   const countdownEnd = new Date();
   countdownEnd.setHours(countdownEnd.getHours() + 24);
 
@@ -31,17 +30,30 @@ const SubscriptionTiers = () => {
     icon: Crown
   };
 
-  // Free trial features
   const freeFeatures = [
-    "3-day free trial",
-    "Limited photo previews", 
-    "Basic chat access",
     "Sample exclusive content"
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-nude-100 to-nude-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 bg-gradient-to-br from-nude-100 to-nude-200 overflow-hidden"
+      style={{
+        backgroundImage: `
+          radial-gradient(circle at 20% 20%, rgba(255,255,255,0.4) 0%, transparent 50%),
+          radial-gradient(circle at 80% 80%, rgba(0,0,0,0.02) 0%, transparent 50%)
+        `
+      }}
+    >
+      {/* Weathered background texture */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none"
+        style={{
+          background: `
+            repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(0,0,0,0.1) 4px, rgba(0,0,0,0.1) 8px),
+            repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(0,0,0,0.1) 4px, rgba(0,0,0,0.1) 8px)
+          `
+        }}
+      />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -79,10 +91,31 @@ const SubscriptionTiers = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+            className="relative bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50"
+            style={{
+              backgroundImage: `
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.8) 0%, transparent 60%),
+                radial-gradient(circle at 75% 75%, rgba(0,0,0,0.02) 0%, transparent 60%)
+              `
+            }}
           >
-            <div className="text-center mb-6">
-              <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-green-100 flex items-center justify-center">
+            {/* Weathered card texture */}
+            <div className="absolute inset-0 rounded-2xl opacity-5 pointer-events-none"
+              style={{
+                background: `
+                  repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)
+                `
+              }}
+            />
+            
+            <div className="relative z-10 text-center mb-6">
+              <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-green-100/80 flex items-center justify-center"
+                style={{
+                  backgroundImage: `
+                    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6) 0%, transparent 70%)
+                  `
+                }}
+              >
                 <span className="text-2xl">🆓</span>
               </div>
               <h3 className="text-xl font-bold mb-2">Free Trial</h3>
@@ -105,9 +138,23 @@ const SubscriptionTiers = () => {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full py-3 rounded-xl font-medium text-lg transition-all duration-300 bg-green-500 text-white hover:bg-green-600"
+              className="relative w-full py-3 rounded-xl font-medium text-lg transition-all duration-300 bg-green-500/90 text-white hover:bg-green-600 border border-green-400/20"
+              style={{
+                backgroundImage: `
+                  radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 70%)
+                `
+              }}
             >
               Start Free Trial
+              
+              {/* Button texture */}
+              <div className="absolute inset-0 rounded-xl opacity-20 pointer-events-none"
+                style={{
+                  background: `
+                    linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 50%, rgba(0,0,0,0.1) 100%)
+                  `
+                }}
+              />
             </motion.button>
             <p className="text-xs text-gray-500 text-center mt-2">
               Auto-converts to premium after trial
@@ -143,44 +190,42 @@ const SubscriptionTiers = () => {
           </h3>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <motion.div 
-              whileHover={{ y: -5 }}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <MessageCircle className="h-12 w-12 text-orange-500 mb-4" />
-              <h4 className="text-xl font-bold mb-2">Private Chat</h4>
-              <p className="text-gray-600 mb-4">Direct messaging with priority responses</p>
-              <div className="text-2xl font-bold text-orange-600 mb-4">$4.99/msg</div>
-              <button className="w-full bg-orange-100 text-orange-600 py-2 rounded-lg hover:bg-orange-200 transition-colors">
-                Purchase
-              </button>
-            </motion.div>
-
-            <motion.div 
-              whileHover={{ y: -5 }}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <Video className="h-12 w-12 text-orange-500 mb-4" />
-              <h4 className="text-xl font-bold mb-2">Video Call</h4>
-              <p className="text-gray-600 mb-4">Personal 15-minute video session</p>
-              <div className="text-2xl font-bold text-orange-600 mb-4">$49.99/call</div>
-              <button className="w-full bg-orange-100 text-orange-600 py-2 rounded-lg hover:bg-orange-200 transition-colors">
-                Book Now
-              </button>
-            </motion.div>
-
-            <motion.div 
-              whileHover={{ y: -5 }}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <Image className="h-12 w-12 text-orange-500 mb-4" />
-              <h4 className="text-xl font-bold mb-2">Custom Content</h4>
-              <p className="text-gray-600 mb-4">Personalized photos and videos</p>
-              <div className="text-2xl font-bold text-orange-600 mb-4">$24.99/item</div>
-              <button className="w-full bg-orange-100 text-orange-600 py-2 rounded-lg hover:bg-orange-200 transition-colors">
-                Request
-              </button>
-            </motion.div>
+            {[
+              { icon: MessageCircle, title: "Private Chat", desc: "Direct messaging with priority responses", price: "$4.99/msg" },
+              { icon: Video, title: "Video Call", desc: "Personal 15-minute video session", price: "$49.99/call" },
+              { icon: Image, title: "Custom Content", desc: "Personalized photos and videos", price: "$24.99/item" }
+            ].map((addon, index) => (
+              <motion.div 
+                key={index}
+                whileHover={{ y: -3 }}
+                className="relative bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50"
+                style={{
+                  backgroundImage: `
+                    radial-gradient(circle at 25% 25%, rgba(255,255,255,0.8) 0%, transparent 60%),
+                    radial-gradient(circle at 75% 75%, rgba(0,0,0,0.02) 0%, transparent 60%)
+                  `
+                }}
+              >
+                {/* Card texture */}
+                <div className="absolute inset-0 rounded-xl opacity-5 pointer-events-none"
+                  style={{
+                    background: `
+                      repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)
+                    `
+                  }}
+                />
+                
+                <div className="relative z-10">
+                  <addon.icon className="h-12 w-12 text-orange-500 mb-4" />
+                  <h4 className="text-xl font-bold mb-2">{addon.title}</h4>
+                  <p className="text-gray-600 mb-4">{addon.desc}</p>
+                  <div className="text-2xl font-bold text-orange-600 mb-4">{addon.price}</div>
+                  <button className="w-full bg-orange-100/80 text-orange-600 py-2 rounded-lg hover:bg-orange-200 transition-colors font-medium">
+                    {index === 0 ? 'Purchase' : index === 1 ? 'Book Now' : 'Request'}
+                  </button>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

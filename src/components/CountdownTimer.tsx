@@ -40,24 +40,49 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ title, endTime, onExpir
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="bg-gradient-to-r from-red-500 to-orange-500 text-white p-4 rounded-lg shadow-lg"
+      className="relative bg-gradient-to-br from-red-600/90 to-orange-600/85 text-white p-5 rounded-xl shadow-2xl border border-red-400/20"
+      style={{
+        backgroundImage: `
+          radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 1px, transparent 1px),
+          radial-gradient(circle at 80% 70%, rgba(0,0,0,0.1) 1px, transparent 1px),
+          linear-gradient(135deg, transparent 0%, rgba(0,0,0,0.05) 50%, transparent 100%)
+        `,
+        backdropFilter: 'blur(1px)'
+      }}
     >
-      <div className="flex items-center space-x-2 mb-2">
-        <Clock className="h-5 w-5" />
-        <span className="font-bold text-sm">{title}</span>
-      </div>
-      <div className="flex space-x-4">
-        <div className="text-center">
-          <div className="text-2xl font-bold">{timeLeft.hours.toString().padStart(2, '0')}</div>
-          <div className="text-xs opacity-80">Hours</div>
+      {/* Weathered overlay */}
+      <div className="absolute inset-0 rounded-xl opacity-20 pointer-events-none"
+        style={{
+          background: `
+            radial-gradient(ellipse at top left, rgba(255,255,255,0.3) 0%, transparent 50%),
+            radial-gradient(ellipse at bottom right, rgba(0,0,0,0.2) 0%, transparent 50%),
+            linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 31%, rgba(255,255,255,0.1) 32%, transparent 33%)
+          `
+        }}
+      />
+      
+      <div className="relative z-10">
+        <div className="flex items-center space-x-2 mb-3">
+          <Clock className="h-5 w-5 opacity-90" />
+          <span className="font-bold text-sm tracking-wide opacity-95">{title}</span>
         </div>
-        <div className="text-center">
-          <div className="text-2xl font-bold">{timeLeft.minutes.toString().padStart(2, '0')}</div>
-          <div className="text-xs opacity-80">Min</div>
-        </div>
-        <div className="text-center">
-          <div className="text-2xl font-bold">{timeLeft.seconds.toString().padStart(2, '0')}</div>
-          <div className="text-xs opacity-80">Sec</div>
+        <div className="flex space-x-4">
+          {[
+            { value: timeLeft.hours, label: 'Hours' },
+            { value: timeLeft.minutes, label: 'Min' },
+            { value: timeLeft.seconds, label: 'Sec' }
+          ].map((item, index) => (
+            <div key={index} className="text-center">
+              <div className="relative">
+                <div className="text-2xl font-bold tracking-tight">
+                  {item.value.toString().padStart(2, '0')}
+                </div>
+                {/* Subtle wear on numbers */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/10 rounded opacity-30" />
+              </div>
+              <div className="text-xs opacity-75 font-medium">{item.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </motion.div>

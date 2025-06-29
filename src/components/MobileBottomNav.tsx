@@ -18,8 +18,24 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ activeTab, onTabChang
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
-      <div className="bg-white/95 backdrop-blur-md border-t border-gray-200 px-4 py-2">
-        <div className="flex justify-around items-center">
+      <div className="relative bg-white/90 backdrop-blur-md border-t border-gray-200/60 px-4 py-2"
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 20% 20%, rgba(255,255,255,0.8) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(0,0,0,0.02) 0%, transparent 50%)
+          `
+        }}
+      >
+        {/* Weathered nav texture */}
+        <div className="absolute inset-0 opacity-5 pointer-events-none"
+          style={{
+            background: `
+              repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)
+            `
+          }}
+        />
+        
+        <div className="relative z-10 flex justify-around items-center">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -29,11 +45,14 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ activeTab, onTabChang
                 key={tab.id}
                 whileTap={{ scale: 0.9 }}
                 onClick={() => onTabChange(tab.id)}
-                className={`flex flex-col items-center space-y-1 py-2 px-3 rounded-lg transition-colors ${
+                className={`relative flex flex-col items-center space-y-1 py-2 px-3 rounded-lg transition-colors ${
                   isActive 
                     ? 'text-orange-500' 
                     : 'text-gray-500'
                 }`}
+                style={isActive ? {
+                  background: 'radial-gradient(circle, rgba(255,107,71,0.1) 0%, transparent 70%)'
+                } : {}}
               >
                 <div className="relative">
                   <Icon className={`h-6 w-6 ${isActive ? 'text-orange-500' : 'text-gray-500'}`} />
@@ -44,9 +63,20 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ activeTab, onTabChang
                     />
                   )}
                   {tab.id === 'premium' && (
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full flex items-center justify-center">
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500/90 rounded-full flex items-center justify-center border border-red-400/30">
                       <div className="w-1 h-1 bg-white rounded-full"></div>
                     </div>
+                  )}
+                  
+                  {/* Icon wear effect */}
+                  {isActive && (
+                    <div className="absolute inset-0 rounded opacity-20 pointer-events-none"
+                      style={{
+                        background: `
+                          radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, transparent 70%)
+                        `
+                      }}
+                    />
                   )}
                 </div>
                 <span className={`text-xs font-medium ${
