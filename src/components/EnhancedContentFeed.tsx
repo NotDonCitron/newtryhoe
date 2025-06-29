@@ -48,7 +48,7 @@ const EnhancedContentFeed = () => {
     {
       id: 5,
       type: 'video',
-      image: '/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (52).jpg',
+      image: '/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (72).jpg',
       title: 'Sexy Video Teaser',
       isPremium: true,
       price: '$12.99',
@@ -57,7 +57,7 @@ const EnhancedContentFeed = () => {
     {
       id: 6,
       type: 'video',
-      image: '/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (52).jpg',
+      image: '/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (72).jpg',
       title: 'Private Show',
       isPremium: true,
       price: '$15.99',
@@ -82,7 +82,7 @@ const EnhancedContentFeed = () => {
     {
       id: 9,
       type: 'video',
-      image: '/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (52).jpg',
+      image: '/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (72).jpg',
       title: 'Exclusive Content',
       isPremium: true,
       price: '$18.99',
@@ -99,7 +99,7 @@ const EnhancedContentFeed = () => {
     {
       id: 11,
       type: 'video',
-      image: '/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (52).jpg',
+      image: '/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (72).jpg',
       title: 'Behind the Scenes',
       isPremium: true,
       price: '$14.99',
@@ -135,7 +135,7 @@ const EnhancedContentFeed = () => {
         >
           <div className="relative mb-8">
             <img
-              src="/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (52).jpg"
+              src="/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (72).jpg"
               alt="Exclusive Content"
               className="w-full max-w-2xl mx-auto h-96 object-cover rounded-2xl shadow-2xl"
             />

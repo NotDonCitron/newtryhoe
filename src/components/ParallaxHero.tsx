@@ -8,7 +8,7 @@ const ParallaxHero = () => {
       {/* Large Header Image with Text */}
       <div className="absolute inset-0">
         <img
-          src="/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (52).jpg"
+          src="/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (72).jpg"
           alt="La Li Lu Laara"
           className="w-full h-full object-cover"
         />
