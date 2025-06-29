@@ -27,7 +27,7 @@ const SubscriptionTiers = () => {
   const Icon = tier.icon;
 
   return (
-    <section className="py-20 bg-gradient-to-br from-orange-50 to-nude-50">
+    <section className="py-20 bg-gradient-to-br from-nude-100 to-nude-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
