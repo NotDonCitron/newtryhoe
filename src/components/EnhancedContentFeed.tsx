@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Lock, Play } from 'lucide-react';
+import FloatingHearts from './FloatingHearts';
+import TipSystem from './TipSystem';
+import ExclusiveDrops from './ExclusiveDrops';
 
 const EnhancedContentFeed = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [likedItems, setLikedItems] = useState(new Set<number>());
+  const [totalTips, setTotalTips] = useState(0);
 
   const filters = [
     { id: 'all', label: 'All' },
@@ -123,6 +128,20 @@ const EnhancedContentFeed = () => {
     return true;
   });
 
+  const handleLike = (itemId: number) => {
+    const newLiked = new Set(likedItems);
+    if (newLiked.has(itemId)) {
+      newLiked.delete(itemId);
+    } else {
+      newLiked.add(itemId);
+    }
+    setLikedItems(newLiked);
+  };
+
+  const handleTip = (amount: number) => {
+    setTotalTips(prev => prev + amount);
+  };
+
   return (
     <section className="py-16 bg-black">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -135,12 +154,9 @@ const EnhancedContentFeed = () => {
         >
           <div className="relative mb-8">
             <img
-              src="/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (327).mp4"
+              src="/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (72).jpg"
               alt="Exclusive Content"
               className="w-full max-w-2xl mx-auto h-96 object-cover rounded-2xl shadow-2xl"
-              onError={(e) => {
-                e.currentTarget.src = '/by PKOFs (Telegram) (10) copy copy.jpg';
-              }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent rounded-2xl"></div>
             <div className="absolute bottom-6 left-6 right-6 text-white">
@@ -150,9 +166,28 @@ const EnhancedContentFeed = () => {
               <p className="text-xl opacity-90">
                 Unlock everything you've been waiting for 🔥
               </p>
+              <div className="flex items-center justify-center space-x-4 mt-4">
+                <FloatingHearts 
+                  onLike={() => handleLike(0)} 
+                  isLiked={likedItems.has(0)} 
+                />
+                <TipSystem onTip={handleTip} />
+                {totalTips > 0 && (
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="bg-yellow-500 text-black px-3 py-1 rounded-full font-bold text-sm"
+                  >
+                    ${totalTips} tipped! 💰
+                  </motion.div>
+                )}
+              </div>
             </div>
           </div>
         </motion.div>
+
+        {/* Exclusive Drops */}
+        <ExclusiveDrops />
 
         {/* Filter Tabs */}
         <motion.div
@@ -242,6 +277,14 @@ const EnhancedContentFeed = () => {
                           </motion.div>
                         </div>
                       )}
+                      
+                      {/* Interactive Elements */}
+                      <div className="absolute top-4 left-4">
+                        <FloatingHearts 
+                          onLike={() => handleLike(item.id)} 
+                          isLiked={likedItems.has(item.id)} 
+                        />
+                      </div>
                       
                       {/* Price Tag */}
                       <div className="absolute bottom-4 left-4 right-4">
