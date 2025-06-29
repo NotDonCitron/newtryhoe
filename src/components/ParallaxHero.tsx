@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Play, Crown, Star, Users } from 'lucide-react';
+import { Crown, Star } from 'lucide-react';
 
 const ParallaxHero = () => {
   return (
@@ -64,11 +64,11 @@ const ParallaxHero = () => {
               className="flex space-x-8"
             >
               <div className="text-center">
-                <div className="text-2xl font-bold text-orange-600">50K+</div>
+                <div className="text-2xl font-bold text-orange-600">2.5K+</div>
                 <div className="text-gray-600">Subscribers</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-orange-600">1K+</div>
+                <div className="text-2xl font-bold text-orange-600">150+</div>
                 <div className="text-gray-600">Premium Content</div>
               </div>
               <div className="text-center">
@@ -95,15 +95,6 @@ const ParallaxHero = () => {
                 <Crown className="h-5 w-5" />
                 <span>Get Premium Access</span>
               </motion.button>
-              
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-orange-300 text-orange-600 hover:bg-orange-50 px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 flex items-center justify-center space-x-2"
-              >
-                <Play className="h-5 w-5" />
-                <span>View Preview</span>
-              </motion.button>
             </motion.div>
           </motion.div>
 
@@ -125,30 +116,6 @@ const ParallaxHero = () => {
                   alt="La Li Lu Laara"
                   className="w-full h-auto rounded-3xl shadow-2xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-orange-900/20 to-transparent rounded-3xl"></div>
-              </motion.div>
-              
-              {/* Floating Elements */}
-              <motion.div
-                animate={{ y: [-5, 5, -5], rotate: [0, 5, -5, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -top-4 -right-4 bg-white rounded-2xl p-4 shadow-xl"
-              >
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-sm font-medium">Live Now</span>
-                </div>
-              </motion.div>
-              
-              <motion.div
-                animate={{ y: [5, -5, 5], rotate: [0, -5, 5, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity }}
-                className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-xl"
-              >
-                <div className="flex items-center space-x-2">
-                  <Users className="h-4 w-4 text-orange-500" />
-                  <span className="text-sm font-medium">2.5K watching</span>
-                </div>
               </motion.div>
             </div>
           </motion.div>

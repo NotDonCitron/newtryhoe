@@ -48,8 +48,8 @@ const EnhancedContentFeed = () => {
     {
       id: 5,
       type: 'video',
-      image: '/by PKOFs (Telegram) (10) copy copy.jpg',
-      title: 'Private Video',
+      image: '/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (52).jpg',
+      title: 'Sexy Video Teaser',
       isPremium: true,
       price: '$12.99',
       duration: '2:30'
@@ -57,8 +57,8 @@ const EnhancedContentFeed = () => {
     {
       id: 6,
       type: 'video',
-      image: '/by PKOFs (Telegram) (14).jpg',
-      title: 'Exclusive Content',
+      image: '/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (52).jpg',
+      title: 'Private Show',
       isPremium: true,
       price: '$15.99',
       duration: '4:15'
@@ -76,18 +76,29 @@ const EnhancedContentFeed = () => {
   return (
     <section className="py-16 bg-black">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Big Sexy Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-white">
-            My Content
-          </h2>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Exclusive pics and videos just for you baby 💋
-          </p>
+          <div className="relative mb-8">
+            <img
+              src="/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (52).jpg"
+              alt="Exclusive Content"
+              className="w-full max-w-2xl mx-auto h-96 object-cover rounded-2xl shadow-2xl"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent rounded-2xl"></div>
+            <div className="absolute bottom-6 left-6 right-6 text-white">
+              <h2 className="text-4xl lg:text-5xl font-bold mb-2">
+                My Exclusive Content
+              </h2>
+              <p className="text-xl opacity-90">
+                Unlock everything you've been waiting for 🔥
+              </p>
+            </div>
+          </div>
         </motion.div>
 
         {/* Filter Tabs */}
@@ -137,7 +148,9 @@ const EnhancedContentFeed = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-80 object-cover"
+                    className={`w-full h-80 object-cover ${
+                      item.isPremium && item.type === 'video' ? 'blur-md' : ''
+                    }`}
                   />
                   
                   {/* Overlay */}
