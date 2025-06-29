@@ -4,123 +4,115 @@ import { Crown, Star } from 'lucide-react';
 
 const ParallaxHero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-50 via-nude-50 to-orange-100">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-orange-300 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-nude-300 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-orange-200 rounded-full blur-3xl"></div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Large Header Image with Text */}
+      <div className="absolute inset-0">
+        <img
+          src="/🌈@LEAKSOFHEAVENHUB ON TELEGRAM🦄💦 - (52).jpg"
+          alt="La Li Lu Laara"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
+      {/* Centered Text Content */}
+      <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="space-y-6"
+        >
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex items-center justify-center space-x-2 text-orange-400"
           >
-            <div className="space-y-4">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="flex items-center space-x-2 text-orange-600"
-              >
-                <Crown className="h-5 w-5" />
-                <span className="font-medium">Premium Experience</span>
-              </motion.div>
-              
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="text-5xl lg:text-7xl font-bold leading-tight"
-              >
-                <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 bg-clip-text text-transparent">
-                  La Li Lu
-                </span>
-                <br />
-                <span className="text-gray-800">Laara</span>
-              </motion.h1>
-              
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="text-xl text-gray-600 leading-relaxed max-w-lg"
-              >
-                Exclusive premium content, personalized experiences, and intimate connections. 
-                Join my world of elegance and sophistication.
-              </motion.p>
-            </div>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex space-x-8"
-            >
-              <div className="text-center">
-                <div className="text-2xl font-bold text-orange-600">2.5K+</div>
-                <div className="text-gray-600">Subscribers</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-orange-600">150+</div>
-                <div className="text-gray-600">Premium Content</div>
-              </div>
-              <div className="text-center">
-                <div className="flex items-center justify-center space-x-1">
-                  <Star className="h-5 w-5 text-orange-500 fill-current" />
-                  <span className="text-2xl font-bold text-orange-600">4.9</span>
-                </div>
-                <div className="text-gray-600">Rating</div>
-              </div>
-            </motion.div>
-
-            {/* Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 87, 51, 0.3)" }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-orange-glow text-white px-8 py-4 rounded-full font-medium text-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2"
-              >
-                <Crown className="h-5 w-5" />
-                <span>Get Premium Access</span>
-              </motion.button>
-            </motion.div>
+            <Crown className="h-6 w-6" />
+            <span className="font-medium text-lg">Premium Experience</span>
           </motion.div>
-
-          {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+          
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-6xl lg:text-8xl font-bold leading-tight"
           >
-            <div className="relative">
-              <motion.div
-                animate={{ y: [-10, 10, -10] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="relative z-10"
-              >
-                <img
-                  src="/by PKOFs (Telegram) (11).jpg"
-                  alt="La Li Lu Laara"
-                  className="w-full h-auto rounded-3xl shadow-2xl"
-                />
-              </motion.div>
+            <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent">
+              La Li Lu
+            </span>
+            <br />
+            <span className="text-white">Laara</span>
+          </motion.h1>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-2xl lg:text-3xl text-gray-200 leading-relaxed font-light"
+          >
+            Exclusive premium content, personalized experiences,<br />
+            and intimate connections. Join my world of elegance<br />
+            and sophistication.
+          </motion.p>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="flex justify-center space-x-12 py-8"
+          >
+            <div className="text-center">
+              <div className="text-3xl lg:text-4xl font-bold text-orange-400">2.5K+</div>
+              <div className="text-gray-300 text-lg">Subscribers</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl lg:text-4xl font-bold text-orange-400">150+</div>
+              <div className="text-gray-300 text-lg">Premium Content</div>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center space-x-2">
+                <Star className="h-6 w-6 text-orange-400 fill-current" />
+                <span className="text-3xl lg:text-4xl font-bold text-orange-400">4.9</span>
+              </div>
+              <div className="text-gray-300 text-lg">Rating</div>
             </div>
           </motion.div>
+
+          {/* Action Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="pt-4"
+          >
+            <motion.button
+              whileHover={{ 
+                scale: 1.05, 
+                boxShadow: "0 25px 50px rgba(255, 87, 51, 0.4)" 
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-12 py-5 rounded-full font-bold text-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center space-x-3 mx-auto"
+            >
+              <Crown className="h-6 w-6" />
+              <span>Get Premium Access</span>
+            </motion.button>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/70"
+      >
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
