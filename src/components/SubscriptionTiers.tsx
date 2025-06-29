@@ -1,79 +1,30 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, Crown, Star, Heart, MessageCircle, Video, Image, Music } from 'lucide-react';
+import { Check, Crown, MessageCircle, Video, Image } from 'lucide-react';
 
 const SubscriptionTiers = () => {
-  const tiers = [
-    {
-      name: "Free Preview",
-      price: "Free",
-      period: "",
-      description: "Get a taste of premium content",
-      features: [
-        "Limited photo previews",
-        "Basic chat access",
-        "Weekly free content",
-        "Community access"
-      ],
-      buttonText: "Start Free",
-      popular: false,
-      color: "gray",
-      icon: Heart
-    },
-    {
-      name: "Basic VIP",
-      price: "$9.99",
-      period: "/month",
-      description: "Perfect for newcomers",
-      features: [
-        "Full photo gallery access",
-        "HD video content",
-        "Priority chat responses",
-        "Weekly exclusive content",
-        "Custom requests (1/month)"
-      ],
-      buttonText: "Join Basic",
-      popular: false,
-      color: "orange",
-      icon: Star
-    },
-    {
-      name: "Premium VIP",
-      price: "$19.99",
-      period: "/month",
-      description: "Most popular choice",
-      features: [
-        "Everything in Basic",
-        "4K premium videos",
-        "Daily exclusive content",
-        "Video calls (2/month)",
-        "Custom requests (3/month)",
-        "Behind-the-scenes content"
-      ],
-      buttonText: "Go Premium",
-      popular: true,
-      color: "orange",
-      icon: Crown
-    },
-    {
-      name: "Ultimate VIP",
-      price: "$39.99",
-      period: "/month",
-      description: "The complete experience",
-      features: [
-        "Everything in Premium",
-        "Unlimited content access",
-        "Weekly 1-on-1 video calls",
-        "Custom content creation",
-        "Priority support",
-        "Exclusive merchandise"
-      ],
-      buttonText: "Ultimate Access",
-      popular: false,
-      color: "orange",
-      icon: Crown
-    }
-  ];
+  const tier = {
+    name: "Snapchat Premium",
+    price: "$19.99",
+    period: "/month",
+    description: "Exclusive premium content and intimate experiences",
+    features: [
+      "Exclusive premium photos & videos",
+      "4K high-quality content",
+      "Daily exclusive updates",
+      "Private messaging access",
+      "Custom content requests",
+      "Behind-the-scenes content",
+      "Priority chat responses",
+      "Video calls (2/month)"
+    ],
+    buttonText: "Get Snapchat Premium",
+    popular: true,
+    color: "orange",
+    icon: Crown
+  };
+
+  const Icon = tier.icon;
 
   return (
     <section className="py-20 bg-gradient-to-br from-orange-50 to-nude-50">
@@ -86,77 +37,59 @@ const SubscriptionTiers = () => {
         >
           <h2 className="text-4xl lg:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-orange-500 to-orange-700 bg-clip-text text-transparent">
-              Choose Your Experience
+              Premium Access
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Select the perfect subscription tier that matches your desires. 
-            Each level offers increasingly intimate and exclusive content.
+            Unlock exclusive content and intimate experiences with premium access. 
+            Join thousands who enjoy the ultimate premium experience.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {tiers.map((tier, index) => {
-            const Icon = tier.icon;
-            return (
-              <motion.div
-                key={tier.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className={`relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 ${
-                  tier.popular ? 'ring-2 ring-orange-400 ring-opacity-50' : ''
-                }`}
-              >
-                {tier.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-orange-glow text-white px-4 py-2 rounded-full text-sm font-medium">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
+        <div className="flex justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            whileHover={{ y: -5, scale: 1.02 }}
+            className="relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 ring-2 ring-orange-400 ring-opacity-50 max-w-md w-full"
+          >
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <span className="bg-orange-glow text-white px-4 py-2 rounded-full text-sm font-medium">
+                Most Popular
+              </span>
+            </div>
 
-                <div className="text-center mb-8">
-                  <div className={`w-16 h-16 mx-auto mb-4 rounded-full ${
-                    tier.color === 'orange' ? 'bg-orange-glow' : 'bg-gray-100'
-                  } flex items-center justify-center`}>
-                    <Icon className={`h-8 w-8 ${
-                      tier.color === 'orange' ? 'text-white' : 'text-gray-600'
-                    }`} />
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
-                  <div className="mb-4">
-                    <span className="text-4xl font-bold text-orange-600">{tier.price}</span>
-                    <span className="text-gray-600">{tier.period}</span>
-                  </div>
-                  <p className="text-gray-600">{tier.description}</p>
-                </div>
+            <div className="text-center mb-8">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-orange-glow flex items-center justify-center">
+                <Icon className="h-8 w-8 text-white" />
+              </div>
+              
+              <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
+              <div className="mb-4">
+                <span className="text-4xl font-bold text-orange-600">{tier.price}</span>
+                <span className="text-gray-600">{tier.period}</span>
+              </div>
+              <p className="text-gray-600">{tier.description}</p>
+            </div>
 
-                <ul className="space-y-4 mb-8">
-                  {tier.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center space-x-3">
-                      <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+            <ul className="space-y-4 mb-8">
+              {tier.features.map((feature, featureIndex) => (
+                <li key={featureIndex} className="flex items-center space-x-3">
+                  <Check className="h-5 w-5 text-green-500 flex-shrink-0" />
+                  <span className="text-gray-700">{feature}</span>
+                </li>
+              ))}
+            </ul>
 
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`w-full py-4 rounded-xl font-medium text-lg transition-all duration-300 ${
-                    tier.color === 'orange'
-                      ? 'bg-orange-glow text-white hover:shadow-lg'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {tier.buttonText}
-                </motion.button>
-              </motion.div>
-            );
-          })}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full py-4 rounded-xl font-medium text-lg transition-all duration-300 bg-orange-glow text-white hover:shadow-lg"
+            >
+              {tier.buttonText}
+            </motion.button>
+          </motion.div>
         </div>
 
         {/* Add-on Services */}
