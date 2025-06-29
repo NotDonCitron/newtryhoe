@@ -3,8 +3,6 @@ import Header from './components/Header';
 import ParallaxHero from './components/ParallaxHero';
 import SubscriptionTiers from './components/SubscriptionTiers';
 import EnhancedContentFeed from './components/EnhancedContentFeed';
-import SocialMediaSection from './components/SocialMediaSection';
-import TrafficDirection from './components/TrafficDirection';
 import Footer from './components/Footer';
 
 function App() {
@@ -15,8 +13,6 @@ function App() {
         <ParallaxHero />
         <SubscriptionTiers />
         <EnhancedContentFeed />
-        <SocialMediaSection />
-        <TrafficDirection />
       </main>
       <Footer />
     </div>
